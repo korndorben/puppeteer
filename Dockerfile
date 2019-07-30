@@ -9,7 +9,7 @@ ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils 
 fonts-arphic-gbsn00lp fonts-arphic-gkai00mp ttf-wqy-zenhei && \
 apt-get clean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
-RUN yarn global add puppeteer@0.13.0 && yarn cache clean
+RUN yarn global add puppeteer@1.19.0 && yarn cache clean
 
 # 设置中文
 ENV LANG C.UTF-8
