@@ -20,6 +20,9 @@ RUN npm install pm2 -g -verbose --registry=https://registry.npm.taobao.org
 # 端口
 EXPOSE 3000
 
+# 工作目录
+WORKDIR /src
+
 # 开放挂载目录
 VOLUME ["/src"]
 
