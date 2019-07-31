@@ -9,7 +9,7 @@ ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils 
 fonts-arphic-gbsn00lp fonts-arphic-gkai00mp ttf-wqy-zenhei && \
 apt-get clean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
-RUN yarn global add puppeteer@1.19.0 && yarn cache clean
+RUN yarn global add puppeteer && yarn cache clean
 
 # 设置中文
 ENV LANG C.UTF-8
@@ -20,11 +20,8 @@ RUN npm install pm2 -g -verbose --registry=https://registry.npm.taobao.org
 # 端口
 EXPOSE 3000
 
-# 工作目录
-WORKDIR /src
-
 # 开放挂载目录
 VOLUME ["/src"]
 
 # 默认执行(可被运行时重写)
-ENTRYPOINT ["pm2","start", "ecosystem.config.js","--no-daemon"]
+ENTRYPOINT ["pm2","start", "/src/ecosystem.config.js","--no-daemon"]
